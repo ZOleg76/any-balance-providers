@@ -1,4 +1,4 @@
-﻿/**
+/**
 Провайдер AnyBalance (http://any-balance-providers.googlecode.com)
 */
 
@@ -6,7 +6,7 @@ var g_headers = {
 	'Accept':           'application/json',
 	'Accept-Language':  'en-US,en;q=0.9,ru;q=0.8,ru-RU;q=0.7',
 	'Connection':       'keep-alive',
-	'User-Agent':       'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.120 Safari/537.36',
+	'User-Agent':       'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.101 Safari/537.36 OPR/77.0.4054.90 (Edition Yx 05)',
 };
 
 
@@ -43,10 +43,9 @@ function main(){
 	AnyBalance.setDefaultCharset('utf-8');
 	
     var prefs = AnyBalance.getPreferences();
-    	prefs.login=prefs.login.replace(/([^\d]*)/g,'').substr(-10)
 	checkEmpty(prefs.login, 'Введите логин!');
 	checkEmpty(prefs.password, 'Введите пароль!');
-
+	
     var json = callApi('login', {username: prefs.login, password: prefs.password});
 
     json = callApi('me');
